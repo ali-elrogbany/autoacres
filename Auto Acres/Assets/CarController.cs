@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public List<AxleInfo> axleInfos; // the information about each individual axle
-    public float maxMotorTorque; // maximum torque the motor can apply to wheel
-    public float maxSteeringAngle; // maximum steer angle the wheel can have
-    public float maxBrakeTorque;
+    [Header("Vehicle Settings")]
+
+    public List<AxleInfo> axleInfos;
+    [SerializeField] private float topSpeed;
+    [SerializeField] private float maxMotorTorque;
+    [SerializeField] private float maxSteeringAngle;
+    [SerializeField] private float maxBrakeTorque;
 
     [Header("Local Variables")]
     private float horizontalInput;
@@ -56,7 +59,7 @@ public class AxleInfo
 {
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
-    public bool motor; // is this wheel attached to motor?
-    public bool steering; // does this wheel apply steer angle?
+    public bool motor;
+    public bool steering;
 }
 
