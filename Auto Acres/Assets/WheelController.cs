@@ -8,7 +8,6 @@ public class WheelController : MonoBehaviour
     [SerializeField] private bool powered;
     [SerializeField] private bool steerable;
     [SerializeField] private bool hasBrakes;
-    [SerializeField] [Range(10, 90)] private float maxAngle;
 
     [Header("References")]
     private WheelCollider m_wheelCollider;
@@ -28,6 +27,11 @@ public class WheelController : MonoBehaviour
     public bool IsSteerable()
     {
         return steerable;
+    }
+
+    public bool HasBrakes()
+    {
+        return hasBrakes;
     }
 
     public void ApplyTorque(float _powerInput)
@@ -53,5 +57,10 @@ public class WheelController : MonoBehaviour
         m_wheelCollider.GetWorldPose(out _wheelPos, out _wheelRotation);
         m_wheelMesh.transform.position = _wheelPos;
         m_wheelMesh.transform.rotation = _wheelRotation;
+    }
+
+    public float GetWheelRPM()
+    {
+        return m_wheelCollider.rpm;
     }
 }

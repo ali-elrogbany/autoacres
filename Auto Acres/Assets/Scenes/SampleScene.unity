@@ -155,7 +155,7 @@ Transform:
   - {fileID: 8750719405840055869}
   - {fileID: 1023661574}
   m_Father: {fileID: 5181143555870799793}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &16442127
 MonoBehaviour:
@@ -172,7 +172,6 @@ MonoBehaviour:
   powered: 0
   steerable: 1
   hasBrakes: 1
-  maxAngle: 50
   m_wheelMesh: {fileID: 8750719405840055869}
 --- !u!1 &143313873
 GameObject:
@@ -567,7 +566,7 @@ Transform:
   - {fileID: 5660130893551149226}
   - {fileID: 2008554605}
   m_Father: {fileID: 5181143555870799793}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &591834547
 MonoBehaviour:
@@ -584,7 +583,6 @@ MonoBehaviour:
   powered: 0
   steerable: 1
   hasBrakes: 1
-  maxAngle: 50
   m_wheelMesh: {fileID: 5660130893551149226}
 --- !u!1 &691179231
 GameObject:
@@ -618,7 +616,7 @@ Transform:
   - {fileID: 8041380198391332620}
   - {fileID: 1496906859}
   m_Father: {fileID: 5181143555870799793}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &691179233
 MonoBehaviour:
@@ -635,7 +633,6 @@ MonoBehaviour:
   powered: 1
   steerable: 0
   hasBrakes: 1
-  maxAngle: 50
   m_wheelMesh: {fileID: 8041380198391332620}
 --- !u!1 &832575517
 GameObject:
@@ -952,7 +949,7 @@ Transform:
   - {fileID: 8509267330805809263}
   - {fileID: 143313875}
   m_Father: {fileID: 5181143555870799793}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1854363066
 MonoBehaviour:
@@ -969,8 +966,38 @@ MonoBehaviour:
   powered: 1
   steerable: 0
   hasBrakes: 1
-  maxAngle: 50
   m_wheelMesh: {fileID: 8509267330805809263}
+--- !u!1 &1883372643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883372644}
+  m_Layer: 0
+  m_Name: SideCameraRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1883372644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883372643}
+  m_LocalRotation: {x: 0.070720896, y: 0.70356137, z: -0.070720896, w: 0.70356137}
+  m_LocalPosition: {x: -10, y: 2.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5181143555870799793}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 11.48, y: 90, z: 0}
 --- !u!1 &2008554603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1416,7 @@ Transform:
   m_Children:
   - {fileID: 186542340934241473}
   - {fileID: 169381324}
+  - {fileID: 1883372644}
   - {fileID: 16442126}
   - {fileID: 591834546}
   - {fileID: 691179232}
@@ -1461,10 +1489,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d80e1e819ce9e4284a1f5058d65e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  maxMotorTorque: 400
-  maxSteeringAngle: 30
-  maxBrakeTorque: 0
+  maxSpeed: 100
+  maxMotorTorque: 1000
+  steeringAngle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.040425614
+      value: 45.060436
+      inSlope: 0.081779845
+      outSlope: 0.081779845
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.106860235
+    - serializedVersion: 3
+      time: 100.015785
+      value: 20.023144
+      inSlope: 0.034523748
+      outSlope: 0.034523748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.016194252
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxBrakeTorque: 300
+  dragFactor: 1
   wheels:
   - {fileID: 16442127}
   - {fileID: 591834547}
