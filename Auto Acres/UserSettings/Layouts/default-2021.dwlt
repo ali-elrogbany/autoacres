@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -154,7 +154,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27812
+  m_LastSelectedObjectID: 27764
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -445,22 +445,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/Vehicles/generic-passenger-car-pack/Materials
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/Vehicles/generic-passenger-car-pack/Materials
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Ali\Ali's Projects\autoacres\Auto Acres
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e8840000
-    m_LastClickedID: 34024
-    m_ExpandedIDs: 00000000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d0000726d0000746d0000766d0000786d00007a6d00007c6d00007e6d0000806d0000826d0000846d0000866d0000
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 646d0000
+    m_LastClickedID: 28004
+    m_ExpandedIDs: 00000000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d00007a6d00007c6d00007e6d0000806d0000826d0000846d0000866d00003c6f0000426f0000886f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -513,10 +513,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 166c0000
-    m_LastClickedInstanceID: 27670
+    m_SelectedInstanceIDs: 746c0000
+    m_LastClickedInstanceID: 27764
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000f2840000
+    m_ExpandedInstanceIDs: c6230000f2840000666d0000c86f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -620,21 +620,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 746c0000
       m_LastClickedID: 27764
-      m_ExpandedIDs: 12fbffff826c0000
+      m_ExpandedIDs: babeffff12fbffff746c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Sports Car
-        m_OriginalName: Sports Car
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
-          x: 78
-          y: 112
-          width: 294
-          height: 16
-        m_UserData: 27764
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
         m_IsWaitingForDelay: 0
-        m_IsRenaming: 1
-        m_OriginalEventType: 7
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -903,9 +903,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 13.988932, y: 0.6078725, z: -10.38205}
+    m_Target: {x: -0.103701115, y: 3.781674, z: 3.0233784}
     speed: 2
-    m_Value: {x: 13.988932, y: 0.6078725, z: -10.38205}
+    m_Value: {x: -0.103701115, y: 3.781674, z: 3.0233784}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -952,13 +952,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1301927, y: 0.5507883, z: -0.08747392, w: 0.81977546}
+    m_Target: {x: -0.033172224, y: 0.7737922, z: -0.04066102, w: -0.63126457}
     speed: 2
-    m_Value: {x: 0.13019261, y: 0.55078787, z: -0.08747386, w: 0.81977487}
+    m_Value: {x: -0.03317217, y: 0.773791, z: -0.040660955, w: -0.6312636}
   m_Size:
-    m_Target: 3.1821733
+    m_Target: 3.584077
     speed: 2
-    m_Value: 3.1821733
+    m_Value: 3.584077
   m_Ortho:
     m_Target: 0
     speed: 2

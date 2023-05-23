@@ -36,7 +36,6 @@ public class VehicleController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(GetSteeringAngle());
         m_throttleInput = m_verticalInput;
         m_steeringInput = m_horizontalInput;
 
