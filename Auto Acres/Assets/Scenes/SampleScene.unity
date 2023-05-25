@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1532,7 +1532,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 100
-  maxMotorTorque: 1000
+  motorTorque:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 997.8769
+      value: 110.56753
+      inSlope: 0.14079323
+      outSlope: 0.14079323
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.031336397
+    - serializedVersion: 3
+      time: 5254.3115
+      value: 414.77277
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 7004.4106
+      value: 61.98828
+      inSlope: -0.37773812
+      outSlope: -0.37773812
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.315054
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   steeringAngle:
     serializedVersion: 2
     m_Curve:
@@ -1557,8 +1589,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  idleRPM: 1000
+  maxRPM: 0
+  RPMChangeRate: 0.2
+  differentialRatio: 4.06
   maxBrakeTorque: 300
-  dragFactor: 1
+  dragFactor: 0.5
+  gearRatios:
+  - 3.666
+  - 2.047
+  - 1.258
+  - 0.864
+  - 0.674
+  optimumShiftingSpeed:
+  - 1
+  - 10
+  - 30
+  - 65
+  - 90
   wheels:
   - {fileID: 16442127}
   - {fileID: 591834547}
