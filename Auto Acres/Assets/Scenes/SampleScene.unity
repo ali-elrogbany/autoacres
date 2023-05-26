@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d80e1e819ce9e4284a1f5058d65e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
+  maxSpeed: 200
   motorTorque:
     serializedVersion: 2
     m_Curve:
@@ -1591,22 +1591,145 @@ MonoBehaviour:
     m_RotationOrder: 4
   idleRPM: 1000
   maxRPM: 0
-  RPMChangeRate: 0.2
   differentialRatio: 4.06
   maxBrakeTorque: 300
   dragFactor: 0.5
-  gearRatios:
-  - 3.666
-  - 2.047
-  - 1.258
-  - 0.864
-  - 0.674
-  optimumShiftingSpeed:
-  - 1
-  - 10
-  - 30
-  - 65
-  - 90
+  gears:
+  - speedToRPM:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1000.88794
+        inSlope: 200.12321
+        outSlope: 200.12321
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 30.008154
+        value: 7006.216
+        inSlope: 200.12321
+        outSlope: 200.12321
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gearRatio: 3.666
+    optimalShiftingSpeed: 1
+    gearMaxSpeed: 0
+  - speedToRPM:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1000.30444
+        inSlope: 99.84619
+        outSlope: 99.84619
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 60.110725
+        value: 7002.1313
+        inSlope: 99.84619
+        outSlope: 99.84619
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gearRatio: 2.047
+    optimalShiftingSpeed: 10
+    gearMaxSpeed: 0
+  - speedToRPM:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1002.08374
+        inSlope: 60.159126
+        outSlope: 60.159126
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 99.943306
+        value: 7014.586
+        inSlope: 60.159126
+        outSlope: 60.159126
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gearRatio: 1.258
+    optimalShiftingSpeed: 30
+    gearMaxSpeed: 0
+  - speedToRPM:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1002.08374
+        inSlope: 42.926064
+        outSlope: 42.926064
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 140.06647
+        value: 7014.586
+        inSlope: 42.926064
+        outSlope: 42.926064
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gearRatio: 0.864
+    optimalShiftingSpeed: 65
+    gearMaxSpeed: 0
+  - speedToRPM:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1001.0735
+        inSlope: 30.040764
+        outSlope: 30.040764
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 199.943
+        value: 7007.5137
+        inSlope: 30.040764
+        outSlope: 30.040764
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    gearRatio: 0.674
+    optimalShiftingSpeed: 90
+    gearMaxSpeed: 0
   wheels:
   - {fileID: 16442127}
   - {fileID: 591834547}

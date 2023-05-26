@@ -10,12 +10,10 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private AnimationCurve steeringAngle;
     [SerializeField] private float idleRPM;
     [SerializeField] private float maxRPM;
-    [SerializeField] private float RPMChangeRate;
     [SerializeField] private float differentialRatio;
     [SerializeField] private float maxBrakeTorque;
     [SerializeField] private float dragFactor;
-    [SerializeField] private float[] gearRatios;
-    [SerializeField] private float[] optimumShiftingSpeed;
+    [SerializeField] private gears[] gears;
 
     [Header("References")]
     [SerializeField] private WheelController[] wheels;
@@ -37,6 +35,10 @@ public class VehicleController : MonoBehaviour
         maxRPM = motorTorque.keys[^1].time;
         m_currentRPM = idleRPM;
         m_currentGear = 0;
+        foreach (gears gear in gears)
+        {
+            gear.gearMaxSpeed = gear.speedToRPM.keys[^1].time;
+        }
     }
 
     private void Update()
@@ -53,15 +55,7 @@ public class VehicleController : MonoBehaviour
 
         AutomaticGearShifting();
 
-        //Calculate RPM
-        if (Mathf.Abs(m_throttleInput) > 0.1f)
-        {
-            m_currentRPM = Mathf.Lerp(m_currentRPM, maxRPM + Random.Range(-50, 50), Time.deltaTime * RPMChangeRate * m_throttleInput);
-        }
-        else
-        {
-            m_currentRPM = Mathf.Lerp(m_currentRPM, idleRPM + Random.Range(-50, 50), Time.deltaTime * RPMChangeRate);
-        }
+        m_currentRPM = GetCurrentRPM();
 
         //To determine if car is breaking or reversing
         m_movingDirection = Vector3.Dot(transform.forward, rigidbody.velocity);
@@ -118,9 +112,12 @@ public class VehicleController : MonoBehaviour
         Vector3 _localVelocity = rigidbody.velocity;
         Vector3 _worldVelocity = transform.TransformDirection(_localVelocity);
         float _speedKMH = _worldVelocity.magnitude * 3.6f;
+        if (_speedKMH < 0)
+            _speedKMH = 0;
         return _speedKMH;
     }
 
+    //To determine the average wheel rotation per minute for all wheels attached to the vehicle
     private float GetAverageWheelRotation()
     {
         float _sumOfRotation = 0;
@@ -140,25 +137,42 @@ public class VehicleController : MonoBehaviour
         return steeringAngle.Evaluate(_steeringSpeed);
     }
 
+    //To calculate current RPM
+    private float GetCurrentRPM()
+    {
+        return gears[m_currentGear].speedToRPM.Evaluate(GetCarSpeed());
+    }
+
     //To calculate the torque based on the RPM and current gear
     private float GetCurrentTorque()
     {
-        return motorTorque.Evaluate(m_currentRPM) * gearRatios[m_currentGear] * differentialRatio;
+        return motorTorque.Evaluate(m_currentRPM) * gears[m_currentGear].gearRatio * differentialRatio;
     }
 
     //Automatic Gearbox simulation
     private void AutomaticGearShifting()
     {
-        if (GetCarSpeed() >= optimumShiftingSpeed[m_currentGear] && m_currentGear < gearRatios.Length - 1)
+        if (GetCarSpeed() >= gears[m_currentGear].optimalShiftingSpeed && m_currentGear < gears.Length - 1 && m_movingDirection > 0.5f)
         {
             m_currentGear += 1;
+            maxSpeed = gears[m_currentGear].gearMaxSpeed;
         }
         else if (m_currentGear > 0)
         {
-            if (GetCarSpeed() < optimumShiftingSpeed[m_currentGear-1])
+            if (GetCarSpeed() < gears[m_currentGear-1].optimalShiftingSpeed)
             {
                 m_currentGear -= 1;
+                maxSpeed = gears[m_currentGear].gearMaxSpeed;
             }
         }
     }
+}
+
+[System.Serializable]
+public class gears
+{
+    [SerializeField] public AnimationCurve speedToRPM;
+    [SerializeField] public float gearRatio;
+    [SerializeField] public float optimalShiftingSpeed;
+    [SerializeField] public float gearMaxSpeed;
 }
