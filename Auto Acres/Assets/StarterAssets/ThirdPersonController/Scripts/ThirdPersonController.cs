@@ -9,9 +9,6 @@ using UnityEngine.InputSystem;
 namespace StarterAssets
 {
     [RequireComponent(typeof(CharacterController))]
-#if ENABLE_INPUT_SYSTEM 
-    [RequireComponent(typeof(PlayerInput))]
-#endif
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
@@ -98,9 +95,6 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-#if ENABLE_INPUT_SYSTEM 
-        private PlayerInput _playerInput;
-#endif
         private Animator _animator;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
@@ -114,11 +108,9 @@ namespace StarterAssets
         {
             get
             {
-#if ENABLE_INPUT_SYSTEM
-                return _playerInput.currentControlScheme == "KeyboardMouse";
-#else
-				return false;
-#endif
+                //The below line is supposed to check the current control scheme of the input to return if the mouse is being used or not
+                //return _playerInput.currentControlScheme == "KeyboardMouse";
+                return _input.currentDeviceIsMouse;
             }
         }
 
@@ -139,11 +131,6 @@ namespace StarterAssets
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
-            _playerInput = GetComponent<PlayerInput>();
-#else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
-#endif
 
             AssignAnimationIDs();
 

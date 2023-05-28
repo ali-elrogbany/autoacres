@@ -19,34 +19,20 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+		public bool currentDeviceIsMouse = true;
 
-#if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
-		{
-			MoveInput(value.Get<Vector2>());
-		}
+		[Header("References")]
+		[SerializeField] private InputManagerSO inputManagerSO;
 
-		public void OnLook(InputValue value)
-		{
-			if(cursorInputForLook)
-			{
-				LookInput(value.Get<Vector2>());
-			}
-		}
+        private void Start()
+        {
+			inputManagerSO.moveEvent += MoveInput;
+			inputManagerSO.rotateEvent += LookInput;
+			inputManagerSO.jumpEvent += JumpInput;
+			inputManagerSO.sprintEvent += SprintInput;
+        }
 
-		public void OnJump(InputValue value)
-		{
-			JumpInput(value.isPressed);
-		}
-
-		public void OnSprint(InputValue value)
-		{
-			SprintInput(value.isPressed);
-		}
-#endif
-
-
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
