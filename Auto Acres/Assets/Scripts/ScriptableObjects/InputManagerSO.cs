@@ -56,7 +56,7 @@ public class InputManagerSO : ScriptableObject
         {
             sprintEvent.Invoke(true);
         }
-        else if (context.phase == InputActionPhase.Waiting)
+        else if (context.phase != InputActionPhase.Performed)
         {
             sprintEvent.Invoke(false);
         }

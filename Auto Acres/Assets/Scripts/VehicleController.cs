@@ -17,6 +17,7 @@ public class VehicleController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private WheelController[] wheels;
+    private VehicleInputs vehicleInputs;
     private new Rigidbody rigidbody;
 
     [Header("Local Variables")]
@@ -32,6 +33,7 @@ public class VehicleController : MonoBehaviour
     private void Start()
     {
         TryGetComponent<Rigidbody>(out rigidbody);
+        TryGetComponent<VehicleInputs>(out vehicleInputs);
         maxRPM = motorTorque.keys[^1].time;
         m_currentRPM = idleRPM;
         m_currentGear = 0;
@@ -43,8 +45,8 @@ public class VehicleController : MonoBehaviour
 
     private void Update()
     {
-        m_horizontalInput = Input.GetAxis("Horizontal");
-        m_verticalInput = Input.GetAxis("Vertical");
+        m_horizontalInput = vehicleInputs.drive.x;
+        m_verticalInput = vehicleInputs.drive.y;
     }
 
     private void FixedUpdate()

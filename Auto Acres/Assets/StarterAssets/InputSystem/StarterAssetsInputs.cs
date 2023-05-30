@@ -24,13 +24,21 @@ namespace StarterAssets
 		[Header("References")]
 		[SerializeField] private InputManagerSO inputManagerSO;
 
-        private void Start()
+        private void OnEnable()
         {
 			inputManagerSO.moveEvent += MoveInput;
 			inputManagerSO.rotateEvent += LookInput;
 			inputManagerSO.jumpEvent += JumpInput;
 			inputManagerSO.sprintEvent += SprintInput;
         }
+
+        private void OnDisable()
+        {
+			inputManagerSO.moveEvent -= MoveInput;
+			inputManagerSO.rotateEvent -= LookInput;
+			inputManagerSO.jumpEvent -= JumpInput;
+			inputManagerSO.sprintEvent -= SprintInput;
+		}
 
         public void MoveInput(Vector2 newMoveDirection)
 		{

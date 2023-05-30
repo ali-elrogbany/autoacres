@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1320529010}
   m_Layer: 0
   m_Name: Input Manager
-  m_TagString: Untagged
+  m_TagString: InputManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,6 +958,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerArmature
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -1683,6 +1688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5181143555870799793}
   - component: {fileID: 5525017550096428301}
+  - component: {fileID: 5525017550096428305}
   - component: {fileID: 5525017550096428302}
   - component: {fileID: 5525017550096428304}
   - component: {fileID: 5525017550096428303}
@@ -1951,6 +1957,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterRadius: 2
+--- !u!114 &5525017550096428305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525017550096428299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2d0be34a23f40498f00051786616f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drive: {x: 0, y: 0}
+  look: {x: 0, y: 0}
+  analogMovement: 0
+  cursorLocked: 1
+  cursorInputForLook: 1
+  currentDeviceIsMouse: 1
+  inputManagerSO: {fileID: 11400000, guid: 3c450d248f765420699a6a441f410633, type: 2}
 --- !u!4 &5660130893551149226
 Transform:
   m_ObjectHideFlags: 0

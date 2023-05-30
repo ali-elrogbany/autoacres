@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class VehicleEnterExitSystem : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class VehicleEnterExitSystem : MonoBehaviour
     private SphereCollider enterZone;
     private Cinemachine.CinemachineVirtualCamera virtualCamera;
     private Transform vehicleCameraRoot;
+    private PlayerInput playerInputComponent;
 
     [Header("Local Variables")]
     private bool m_driving;
@@ -23,6 +25,7 @@ public class VehicleEnterExitSystem : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         gameObject.TryGetComponent<VehicleController>(out vehicle);
         gameObject.TryGetComponent<SphereCollider>(out enterZone);
+        GameObject.FindGameObjectWithTag("InputManager").TryGetComponent<PlayerInput>(out playerInputComponent);
 
         virtualCamera = GameObject.Find("PlayerFollowCamera").GetComponent<Cinemachine.CinemachineVirtualCamera>();
         vehicleCameraRoot = gameObject.transform.Find("CameraRoot");
@@ -44,6 +47,8 @@ public class VehicleEnterExitSystem : MonoBehaviour
             player.transform.SetParent(gameObject.transform);
             player.SetActive(false);
             virtualCamera.Follow = vehicleCameraRoot;
+            playerInputComponent.SwitchCurrentActionMap("Vehicle");
+            Debug.Log(playerInputComponent.currentActionMap);
         }
         else if (Input.GetKeyDown(KeyCode.F) && m_driving)
         {
@@ -53,6 +58,8 @@ public class VehicleEnterExitSystem : MonoBehaviour
             player.GetComponent<StarterAssets.ThirdPersonController>().enabled = true;
             player.transform.SetParent(null);
             virtualCamera.Follow = player.transform.Find("PlayerCameraRoot");
+            playerInputComponent.SwitchCurrentActionMap("Player");
+            Debug.Log(playerInputComponent.currentActionMap);
         }
     }
 
